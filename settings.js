@@ -5,10 +5,10 @@ function convertToBool(text, fault = 'true') {
 }
 
 module.exports = {    
-SESSION_ID: process.env.SESSION_ID || 'CHAMA-MD=2N82GBgL#xy8cu78CRD4fBEdjvzpqXSarQs1taNVhSivbv-FexYY',
-OWNER_NUMBER: process.env.OWNER_NUMBER || "94772194789",
+SESSION_ID: process.env.SESSION_ID || 'CHAMA-MD=S4xVRThA#yKoJWyCIpj3tGyk-PJ2xtuix0OnIEKXJXpOMtpp7k20',
+OWNER_NUMBER: process.env.OWNER_NUMBER || "94779510013",
 ALIVE: process.env.ALIVE || `default`,
-OWNER_NAME: process.env.OWNER_NAME || 'chamindu' ,     
+OWNER_NAME: process.env.OWNER_NAME || 'Chethmina' ,     
 POSTGRESQL_URL: process.env.POSTGRESQL_URL || 'postgres://izumimd_meje_user:0Vhm5vKGZ7ORt2FlJBQf4d6EtRdeuE8z@dpg-cn0o2imn7f5s73fa46q0-a.frankfurt-postgres.render.com/izumimd_meje',
 PREFIX:  process.env.PREFIX || ['.'] ,
 FOOTER: '> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴀᴅʜɪ ᴏꜰᴄ',
