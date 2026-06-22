@@ -139,16 +139,18 @@ const store = makeInMemoryStore({ logger: P({ level: 'silent' }).child({ level: 
                 }
             });
             console.log('Plugins installed ✅')
-            console.log('Bot connected ✅')
-await conn.sendMessage(config.OWNER_NUMBER + "@s.whatsapp.net", {
-text: "*🎬 DILSHAN MD V1 successfully connected* ✓\n\n\n> ◦ *Official GitHub* - ```[https://github.com/VajiraTech](https://github.com/VajiraTech)
-```\n> ◦ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴠɪᴀ ᴛʏᴘᴇ: .joinsup\n*🎬 DILSHAN MD ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱේʀ ʙᴏᴛ*\n*ᴄʀᴇᴀᴛᴇᴅ ʙʏ • DILSHAN*",
-contextInfo: {
-externalAdReply: {
-title: "🎬 DILSHAN MD V1 🎬\nSuccessfully Connected !",	
-thumbnailUrl: 'https://files.catbox.moe/khqeb9.jpg',
-sourceUrl: "",
-mediaType: 1,
+          await conn.sendMessage(config.OWNER_NUMBER + "@s.whatsapp.net", {
+    text: "*🎬 DILSHAN MD V1 successfully connected* ✓\n\n\n> ◦ *Official GitHub* - https://github.com/VajiraTech\n> ◦ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴠɪᴀ ᴛʏᴘᴇ: .joinsup\n*🎬 DILSHAN MD ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴄʀᴇᴀᴛᴇᴅ ʙʏ • DILSHAN*",
+    contextInfo: {
+        externalAdReply: {
+            title: "🎬 DILSHAN MD V1 🎬\nSuccessfully Connected !",	
+            thumbnailUrl: 'https://files.catbox.moe/khqeb9.jpg',
+            sourceUrl: "",
+            mediaType: 1,
+            renderLargerThumbnail: true
+        }
+    }
+});
 renderLargerThumbnail: true
 }}}) 
     }
