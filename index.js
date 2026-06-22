@@ -94,7 +94,6 @@ const port = process.env.PORT || 8000;
 
 //====================================
 async function connectToWA() {
-// ✅ FIXED: ඉහළින්ම destructured කරපු makeInMemoryStore එක කෙලින්ම ගෙන, pino එක වෙනුවට P යෙදුවා
 const store = makeInMemoryStore({ logger: P({ level: 'silent' }).child({ level: 'silent' }) })	
     const {
         version,
@@ -129,8 +128,6 @@ const store = makeInMemoryStore({ logger: P({ level: 'silent' }).child({ level: 
             }
         } else if (connection === 'open') {
 
-
-		
             console.log('Installing plugins 🔌... ')
             const path = require('path');
             fs.readdirSync("./plugins/").forEach((plugin) => {
@@ -139,26 +136,24 @@ const store = makeInMemoryStore({ logger: P({ level: 'silent' }).child({ level: 
                 }
             });
             console.log('Plugins installed ✅')
-          await conn.sendMessage(config.OWNER_NUMBER + "@s.whatsapp.net", {
-    text: "*🎬 DILSHAN MD V1 successfully connected* ✓\n\n\n> ◦ *Official GitHub* - https://github.com/VajiraTech\n> ◦ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴠɪᴀ ᴛʏᴘᴇ: .joinsup\n*🎬 DILSHAN MD ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴄʀᴇᴀᴛᴇᴅ ʙʏ • DILSHAN*",
-    contextInfo: {
-        externalAdReply: {
-            title: "🎬 DILSHAN MD V1 🎬\nSuccessfully Connected !",	
-            thumbnailUrl: 'https://files.catbox.moe/khqeb9.jpg',
-            sourceUrl: "",
-            mediaType: 1,
-            renderLargerThumbnail: true
+            console.log('Bot connected ✅')
+            
+            await conn.sendMessage(config.OWNER_NUMBER + "@s.whatsapp.net", {
+                text: "*🎬 DILSHAN MD V1 successfully connected* ✓\n\n\n> ◦ *Official GitHub* - https://github.com/VajiraTech\n> ◦ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴠɪᴀ ᴛʏᴘᴇ: .joinsup\n*🎬 DILSHAN MD ᴡʜᴀтахп ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴄʀᴇᴀᴛᴇដ ʙʏ • DILSHAN*",
+                contextInfo: {
+                    externalAdReply: {
+                        title: "🎬 DILSHAN MD V1 🎬\nSuccessfully Connected !",	
+                        thumbnailUrl: 'https://files.catbox.moe/khqeb9.jpg',
+                        sourceUrl: "",
+                        mediaType: 1,
+                        renderLargerThumbnail: true
+                    }
+                }
+            });
         }
-    }
-});
-renderLargerThumbnail: true
-}}}) 
-    }
-  })
+    })
 
-
-
-conn.forwardMessage = async (jid, message, forceForward = false, options = {}) => {
+    conn.forwardMessage = async (jid, message, forceForward = false, options = {}) => {
             let vtype
             if (options.readViewOnce) {
                 message.message = message.message && message.message.ephemeralMessage && message.message.ephemeralMessage.message ? message.message.ephemeralMessage.message : (message.message || undefined)
@@ -191,16 +186,8 @@ conn.forwardMessage = async (jid, message, forceForward = false, options = {}) =
             } : {})
             await conn.relayMessage(jid, waMessage.message, { messageId: waMessage.key.id })
             return waMessage
-             }
+    }
         
-      
-//==================================================================
-
-  //SORY BRO SETTINGS PLUGINS NOT 💔👨‍🔧💬 IAM SHONU
-
-	
-//==================================================================	
-
     conn.ev.on('creds.update', saveCreds)
     conn.ev.on('messages.upsert', async (mek) => {
       try {
@@ -222,16 +209,10 @@ conn.forwardMessage = async (jid, message, forceForward = false, options = {}) =
             const from = mek.key.remoteJid
             const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
 
-
-
-	      
 const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text :(type == 'interactiveResponseMessage' ) ? mek.message.interactiveResponseMessage  && mek.message.interactiveResponseMessage.nativeFlowResponseMessage && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson) && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id :(type == 'templateButtonReplyMessage' )? mek.message.templateButtonReplyMessage && mek.message.templateButtonReplyMessage.selectedId  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
   
-
-
 conn.sendPoll = (jid, name = '', values = [], selectableCount = 1) => { return conn.sendMessage(jid, { poll: { name, values, selectableCount }}) }
 	      
- 
 	    var dbset = await  get_set('all')
 config = await jsonConcat(config , dbset)    
 	    prefix = config.PREFIX
@@ -243,7 +224,6 @@ var q = args.join(' ')
     var body2 = ''
  if(smg.quoted && smg.quoted.fromMe && await id_db.check(smg.quoted.id)  ){
 if (body.startsWith(prefix))  body = body.replace( prefix , '')
-			     
 			     
 var id_body = await id_db.get_data( smg.quoted.id , body)
 	
@@ -293,21 +273,12 @@ q = args.join(' ')
   return await conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
 
-
-
-
-//==================================Nonbutton================================
-
-
-
 function jsonConcat(o1, o2) {
  for (var key in o2) {
   o1[key] = o2[key];
  }
  return o1;
 }	
-
-        
 
     var dbset = await  get_set('all')
 config = await jsonConcat(config , dbset)    
@@ -333,7 +304,7 @@ showAdAttribution: true
 }
 }}, { quoted: mek })
 }
-const NON_BUTTON = true // Implement a switch to on/off this feature...
+const NON_BUTTON = true 
 conn.buttonMessage2 = async (jid, msgData,quotemek) => {
   if (!NON_BUTTON) {
     await conn.sendMessage(jid, msgData)
@@ -406,10 +377,10 @@ function convertNumberList(sections) {
 
         section.rows.forEach((row, rowIndex) => {
             result += `${row.title} || ${row.description}`;
-            result += rowIndex === section.rows.length - 1 ? "" : "\n"; // Add newline unless it's the last row
+            result += rowIndex === section.rows.length - 1 ? "" : "\n"; 
         });
 
-        result += sectionIndex === sections.length - 1 ? "" : "\n\n"; // Add extra newline unless it's the last section
+        result += sectionIndex === sections.length - 1 ? "" : "\n\n"; 
     });
 
     return result;
@@ -493,7 +464,6 @@ await updateCMDStore(imgmsg.key.id, CMD_ID_MAP);
     }
   }
 }
-
 
 conn.listMessage2 = async (jid, msgData, quotemek) => {
   if (!NON_BUTTON) {
@@ -589,7 +559,6 @@ showAdAttribution: true
   }
 }
 
-    	    
 conn.edite = async (gg, newmg) => {
   await conn.relayMessage(from, {
     protocolMessage: {
@@ -602,17 +571,10 @@ editedMessage: {
   }, {})
 }	    
 
-
 	const ownerdata = (await axios.get('https://gist.github.com/Lakshanteach/4097b7c56cd7b2fb18de8fd5f3e3d306.js')).data
             config.API = ownerdata.api
             config.APIKEY = ownerdata.apikey
             
-	      
-
-
-
-	      
-      
             //==================================plugin map================================
          const events = require('./lib/command')
 const cmdName = isCmd ?  command : false;
@@ -645,15 +607,7 @@ events.commands.map(async (command) => {
     command.function(conn, mek, m, { from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply , config, isCreator , isDev, botNumber2 });
   }
 });
-
-
-
-
-
       
-//==================================================================	
-
-	      
             switch (command) {
         case 'jid':
         reply(from)
