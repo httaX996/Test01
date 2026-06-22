@@ -94,7 +94,8 @@ const port = process.env.PORT || 8000;
 
 //====================================
 async function connectToWA() {
-const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })	
+// ✅ FIXED: ඉහළින්ම destructured කරපු makeInMemoryStore එක කෙලින්ම ගෙන, pino එක වෙනුවට P යෙදුවා
+const store = makeInMemoryStore({ logger: P({ level: 'silent' }).child({ level: 'silent' }) })	
     const {
         version,
         isLatest
@@ -140,7 +141,8 @@ const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream
             console.log('Plugins installed ✅')
             console.log('Bot connected ✅')
 await conn.sendMessage(config.OWNER_NUMBER + "@s.whatsapp.net", {
-text: "*🎬 DILSHAN MD V1 successfully connected* ✓\n\n\n> ◦ *Official GitHub* - ```https://github.com/VajiraTech```\n> ◦ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴠɪᴀ ᴛʏᴘᴇ: .joinsup\n*🎬 DILSHAN MD ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱᴇʀ ʙᴏᴛ*\n*ᴄʀᴇᴀᴛᴇᴅ ʙʏ • DILSHAN*",
+text: "*🎬 DILSHAN MD V1 successfully connected* ✓\n\n\n> ◦ *Official GitHub* - ```[https://github.com/VajiraTech](https://github.com/VajiraTech)
+```\n> ◦ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴠɪᴀ ᴛʏᴘᴇ: .joinsup\n*🎬 DILSHAN MD ᴡʜᴀᴛꜱᴀᴘᴘ ᴜꜱේʀ ʙᴏᴛ*\n*ᴄʀᴇᴀᴛᴇᴅ ʙʏ • DILSHAN*",
 contextInfo: {
 externalAdReply: {
 title: "🎬 DILSHAN MD V1 🎬\nSuccessfully Connected !",	
@@ -684,3 +686,4 @@ app.listen(port, () => console.log(`dilshan Server listening on port http://loca
 setTimeout(() => {
 connectToWA()
 }, 3000);
+
