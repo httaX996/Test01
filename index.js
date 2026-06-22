@@ -94,7 +94,7 @@ const port = process.env.PORT || 8000;
 
 //====================================
 async function connectToWA() {
-const store = makeInMemoryStore({ logger: P({ level: 'silent' }).child({ level: 'silent' }) })	
+//const store = makeInMemoryStore({ logger: P({ level: 'silent' }).child({ level: 'silent' }) })	
     const {
         version,
         isLatest
